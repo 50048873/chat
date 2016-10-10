@@ -1,0 +1,60 @@
+html { 
+	background: none;
+	.panel-default { 
+		border: none;
+		box-shadow: none;
+		margin-top: -200px;
+		margin-bottom: 30px;
+		.pos-rlt { 
+			border-color: #ccc;
+		}
+		.arrow.left { 
+			border-right-color: #ccc;
+		}
+		.startChatTooltip { 
+			text-align: center;
+			p { 
+				display: inline-block;
+				padding: 2px 6px;
+				margin: 10px 0 0;
+				background-color: #d4d4d4;
+			}
+		}
+	}
+	.app-footer { 
+		position:fixed;
+		border-color: #dee5e7;
+	}
+}
+
+.loading { 
+	.loading-line { 
+		width: 1px;
+		background-color: silver;
+		margin-right: auto;
+		margin-left: auto;
+		height: 170px;
+	}
+	.loading-circle { 
+		width: 30px;
+		height: 30px;
+		margin-right: auto;
+		margin-left: auto;
+		border-width: 5px;
+		border-style: solid;
+		border-top-color: rgba(240,240,240,1);
+		border-right-color: rgba(235,235,235,1);
+		border-bottom-color: rgba(230,230,230,1);
+		border-left-color: rgba(225,225,225,1);
+		border-radius: 50%;
+		-webkit-animation: loading-circle 0.6s infinite linear;
+	}
+	@-webkit-keyframes loading-circle { 
+		0% { 
+			-webkit-transform: rotate(0deg);
+		}
+		100% { 
+			-webkit-transform: rotate(360deg);
+		}
+	}
+}
