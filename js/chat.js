@@ -27,7 +27,7 @@ $(function() {
 			var val = $enterBox.val();
 			if (val.length) { 
 				iSaid(val);
-				//heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
+				heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
 			}
 			$enterBox.val('');
 			$enterBox.focus();
@@ -90,15 +90,13 @@ $(function() {
 			url: 'json/chat.json',
 			data: paging
 		}).then(function(res) { 
-			setTimeout(function() { 
-				if (res.length) { 
-					setLoadingPosition(0);
-					for (var i = res.length - paging.pageSize * (paging.pageNumber - 1) - 1; i >= res.length - paging.pageSize * paging.pageNumber && i >= 0; i--) { 
-						loadPreviousChat(res[i].content, res[i].time);
-					};
-					paging.pageNumber++;
-				}
-			}, 400);
+			if (res.length) { 
+				setLoadingPosition(0);
+				for (var i = res.length - paging.pageSize * (paging.pageNumber - 1) - 1; i >= res.length - paging.pageSize * paging.pageNumber && i >= 0; i--) { 
+					loadPreviousChat(res[i].content, res[i].time);
+				};
+				paging.pageNumber++;
+			}
 		}, function(err) { 
 			console.log(err);
 		});
@@ -127,7 +125,8 @@ $(function() {
 	}
 
 	function scrollToBottom() { 
-		$(window).scrollTop($panelBody.height() + panel_margin_h - (screen_h - $(window).height()));
+		//$(window).scrollTop($panelBody.height() + panel_margin_h - (screen_h - $(window).height()));
+		$(window).scrollTop(10000);
 	}
 
 	function iSaid(txt) { 
