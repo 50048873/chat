@@ -79,8 +79,12 @@
 
 	Face.prototype.chooseFace = function() { 
 		$('.category').click(function(e) { 
-			var img = e.target;
-			$('#enterBox').append(img);
+			var target = e.target;
+			if (target.tagName === 'IMG') { 
+				var img = $(target).clone();
+				$('#enterBox').append(img);
+				$('#send').addClass('btn-primary');
+			}
 		});
 	};
 

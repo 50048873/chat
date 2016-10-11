@@ -13,8 +13,8 @@ $(function() {
 
 	//输入文字时，发送按钮变亮
 	$enterBox.keyup(function() { 
-		var val = $(this).val();
-		if (val.length) { 
+		var html = $(this).html();
+		if (html.length) { 
 			$send.addClass('btn-primary');
 		}
 	});
@@ -27,12 +27,12 @@ $(function() {
 	$send.swipe({
 		tap: function(event, target) {
 			event.preventDefault();
-			var val = $enterBox.val();
-			if (val.length) { 
-				iSaid(val);
+			var html = $enterBox.html();
+			if (html.length) { 
+				iSaid(html);
 				heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
 			}
-			$enterBox.val('');
+			$enterBox.html('');
 			$enterBox.focus();
 			$send.removeClass('btn-primary');
 			scrollToBottom();
