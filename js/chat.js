@@ -4,9 +4,12 @@ $(function() {
 	var $send = $('#send');
 	var $enterBox = $('#enterBox');
 	var screen_h = $(window).height();
-	var panel_margin_h = 30;
+	//var panel_margin_h = 30;
 
-	$(window).scrollTop($panelBody.height() + panel_margin_h - screen_h);
+	heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
+
+	//$(window).scrollTop($panelBody.height() + panel_margin_h - screen_h);
+	$(window).scrollTop(10000);
 
 	//输入文字时，发送按钮变亮
 	$enterBox.keyup(function() { 
@@ -48,7 +51,7 @@ $(function() {
 	};
 	var panel = $panel[0];
 
-	loadContent(paging);
+	//loadContent(paging);
 
 	panel.addEventListener('touchstart', fingerStart, false);
 	panel.addEventListener('touchmove', fingerMove, false);
