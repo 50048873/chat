@@ -18,14 +18,117 @@
 		<!--div class="startChatTooltip"><p>现在可以开始聊天了</p></div-->
 		<div class="panel-body" id="panelBody"></div>
 	</div>
-	<footer class="panel-footer2">
+	<footer class="footer">
 		<form>
 			<div class="enterBox" id="enterBox"  contenteditable="true"></div>
-			<span>笑脸</span>
-			<button class="btn btn-default" type="button" id="send">发送</button>
+			<div class="faceSwitch" id="faceSwitch">
+				<svg version="1.1" id="face" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+					<path fill="#6F7378" d="M25,1C11.745,1,1,11.745,1,25c0,13.255,10.745,24,24,24s24-10.745,24-24C49,11.745,38.255,1,25,1z M25,48C12.297,48,2,37.702,2,25C2,12.297,12.297,2,25,2c12.702,0,23,10.297,23,23C48,37.702,37.702,48,25,48z"/>
+					<ellipse fill="#6F7378" cx="16.813" cy="19.375" rx="2.313" ry="3.25"/>
+					<ellipse fill="#6F7378" cx="33.25" cy="19.375" rx="2.313" ry="3.25"/>
+					<path fill="#6F7378" d="M11.009,27.986C11.723,35.084,17.714,40.625,25,40.625s13.277-5.541,13.99-12.639H11.009z"/>
+				</svg>
+				<svg version="1.1" id="keyboard" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+					<path fill="#6F7378" d="M25,1C11.745,1,1,11.745,1,25c0,13.255,10.745,24,24,24s24-10.745,24-24C49,11.745,38.255,1,25,1z M25,48C12.297,48,2,37.702,2,25C2,12.297,12.297,2,25,2c12.702,0,23,10.297,23,23C48,37.702,37.702,48,25,48z"/>
+					<g>
+						<g>
+							<rect x="14.107" y="17.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="20.045" y="17.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="25.982" y="17.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="31.92" y="17.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="14.107" y="23.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="20.045" y="23.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="25.982" y="23.047" fill="#6D7177" width="3.973" height="3.016"/>
+							<rect x="31.92" y="23.047" fill="#6D7177" width="3.973" height="3.016"/>
+						</g>
+						<rect x="18.08" y="30.141" fill="#6D7177" width="13.84" height="2.813"/>
+					</g>
+				</svg>
+			</div>
+			<div class="sendBox"><button class="btn btn-default" type="button" id="send">发送</button></div>
 		</form>
+		<div id="faceIcons" class="faceIcons">
+			<!--nav class="f-nav">
+				<a href="javascript:void(0);" class="selected">默认</a>
+				<a href="javascript:void(0);">拜年</a>
+				<a href="javascript:void(0);">浪花</a>
+				<a href="javascript:void(0);">暴走</a>
+			</nav>
+
+			<div class="clearfix category">
+			    <img src="img/mr/1.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_1]');">
+			    <img src="img/mr/2.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_2]');">
+			    <img src="img/mr/3.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_3]');">
+			    <img src="img/mr/4.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_4]');">
+			    <img src="img/mr/5.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_5]');">
+			    <img src="img/mr/6.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_6]');">
+			    <img src="img/mr/7.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_7]');">
+			    <img src="img/mr/8.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_8]');">
+			    <img src="img/mr/9.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_9]');">
+			    <img src="img/mr/10.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_10]');">
+			    <img src="img/mr/11.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_11]');">
+			    <img src="img/mr/12.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_12]');">
+			    <img src="img/mr/13.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_13]');">
+			    <img src="img/mr/14.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_14]');">
+			    <img src="img/mr/15.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_15]');">
+		    </div>
+
+			<div class="clearfix category">
+			    <img src="img/gnl/16.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_16]');">
+			    <img src="img/gnl/17.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_17]');">
+			    <img src="img/gnl/18.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_18]');">
+			    <img src="img/gnl/19.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_19]');">
+			    <img src="img/gnl/20.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_20]');">
+			    <img src="img/gnl/21.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_21]');">
+			    <img src="img/gnl/22.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_22]');">
+			    <img src="img/gnl/23.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_23]');">
+			    <img src="img/gnl/24.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_24]');">
+			    <img src="img/gnl/25.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_25]');">
+			    <img src="img/gnl/26.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_26]');">
+			    <img src="img/gnl/27.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_27]');">
+			    <img src="img/gnl/28.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_28]');">
+			    <img src="img/gnl/29.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_29]');">
+			    <img src="img/gnl/30.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_30]');">
+			</div>
+
+			<div class="clearfix category">
+			    <img src="img/lxh/31.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_31]');">
+			    <img src="img/lxh/32.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_32]');">
+			    <img src="img/lxh/33.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_33]');">
+			    <img src="img/lxh/34.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_34]');">
+			    <img src="img/lxh/35.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_35]');">
+			    <img src="img/lxh/36.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_36]');">
+			    <img src="img/lxh/37.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_37]');">
+			    <img src="img/lxh/38.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_38]');">
+			    <img src="img/lxh/39.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_39]');">
+			    <img src="img/lxh/40.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_40]');">
+			    <img src="img/lxh/41.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_41]');">
+			    <img src="img/lxh/42.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_42]');">
+			    <img src="img/lxh/43.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_43]');">
+			    <img src="img/lxh/44.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_44]');">
+			    <img src="img/lxh/45.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_45]');">
+			 </div>
+
+			<div class="clearfix category">
+			    <img src="img/bz/46.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_46]');">
+			    <img src="img/bz/47.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_47]');">
+			    <img src="img/bz/48.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_48]');">
+			    <img src="img/bz/49.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_49]');">
+			    <img src="img/bz/50.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_50]');">
+			    <img src="img/bz/51.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_51]');">
+			    <img src="img/bz/52.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_52]');">
+			    <img src="img/bz/53.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_53]');">
+			    <img src="img/bz/54.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_54]');">
+			    <img src="img/bz/55.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_55]');">
+			    <img src="img/bz/56.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_56]');">
+			    <img src="img/bz/57.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_57]');">
+			    <img src="img/bz/58.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_58]');">
+			    <img src="img/bz/59.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_59]');">
+			    <img src="img/bz/60.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_60]');">
+			</div-->
+		</div>
 	</footer>
-	<footer class="panel-footer">
+	<!--footer class="panel-footer">
 		<form class="m-b-none">
 		  <div class="input-group">
 			<div class="form-control" id="enterBox"  contenteditable="true"></div>
@@ -34,87 +137,8 @@
 			</span>
 		  </div>
 		</form>
-	</footer>
-	<div id="faceIcons" class="faceIcons">
-		<!--nav class="f-nav">
-			<a href="javascript:void(0);" class="selected">默认</a>
-			<a href="javascript:void(0);">拜年</a>
-			<a href="javascript:void(0);">浪花</a>
-			<a href="javascript:void(0);">暴走</a>
-		</nav>
-
-		<div class="clearfix category">
-		    <img src="img/mr/1.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_1]');">
-		    <img src="img/mr/2.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_2]');">
-		    <img src="img/mr/3.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_3]');">
-		    <img src="img/mr/4.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_4]');">
-		    <img src="img/mr/5.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_5]');">
-		    <img src="img/mr/6.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_6]');">
-		    <img src="img/mr/7.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_7]');">
-		    <img src="img/mr/8.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_8]');">
-		    <img src="img/mr/9.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_9]');">
-		    <img src="img/mr/10.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_10]');">
-		    <img src="img/mr/11.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_11]');">
-		    <img src="img/mr/12.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_12]');">
-		    <img src="img/mr/13.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_13]');">
-		    <img src="img/mr/14.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_14]');">
-		    <img src="img/mr/15.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_15]');">
-	    </div>
-
-		<div class="clearfix category">
-		    <img src="img/gnl/16.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_16]');">
-		    <img src="img/gnl/17.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_17]');">
-		    <img src="img/gnl/18.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_18]');">
-		    <img src="img/gnl/19.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_19]');">
-		    <img src="img/gnl/20.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_20]');">
-		    <img src="img/gnl/21.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_21]');">
-		    <img src="img/gnl/22.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_22]');">
-		    <img src="img/gnl/23.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_23]');">
-		    <img src="img/gnl/24.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_24]');">
-		    <img src="img/gnl/25.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_25]');">
-		    <img src="img/gnl/26.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_26]');">
-		    <img src="img/gnl/27.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_27]');">
-		    <img src="img/gnl/28.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_28]');">
-		    <img src="img/gnl/29.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_29]');">
-		    <img src="img/gnl/30.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_30]');">
-		</div>
-
-		<div class="clearfix category">
-		    <img src="img/lxh/31.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_31]');">
-		    <img src="img/lxh/32.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_32]');">
-		    <img src="img/lxh/33.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_33]');">
-		    <img src="img/lxh/34.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_34]');">
-		    <img src="img/lxh/35.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_35]');">
-		    <img src="img/lxh/36.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_36]');">
-		    <img src="img/lxh/37.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_37]');">
-		    <img src="img/lxh/38.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_38]');">
-		    <img src="img/lxh/39.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_39]');">
-		    <img src="img/lxh/40.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_40]');">
-		    <img src="img/lxh/41.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_41]');">
-		    <img src="img/lxh/42.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_42]');">
-		    <img src="img/lxh/43.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_43]');">
-		    <img src="img/lxh/44.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_44]');">
-		    <img src="img/lxh/45.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_45]');">
-		 </div>
-
-		<div class="clearfix category">
-		    <img src="img/bz/46.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_46]');">
-		    <img src="img/bz/47.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_47]');">
-		    <img src="img/bz/48.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_48]');">
-		    <img src="img/bz/49.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_49]');">
-		    <img src="img/bz/50.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_50]');">
-		    <img src="img/bz/51.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_51]');">
-		    <img src="img/bz/52.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_52]');">
-		    <img src="img/bz/53.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_53]');">
-		    <img src="img/bz/54.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_54]');">
-		    <img src="img/bz/55.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_55]');">
-		    <img src="img/bz/56.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_56]');">
-		    <img src="img/bz/57.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_57]');">
-		    <img src="img/bz/58.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_58]');">
-		    <img src="img/bz/59.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_59]');">
-		    <img src="img/bz/60.gif" onclick="$('#saytext').setCaret();$('#saytext').insertAtCaret('[em_60]');">
-		</div-->
-	</div>
+	</footer-->
+	
 	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/jquery-touchswipe/jquery.touchSwipe.min.js"></script>

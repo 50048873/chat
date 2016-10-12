@@ -4,6 +4,9 @@ $(function() {
 	var $send = $('#send');
 	var $enterBox = $('#enterBox');
 	var screen_h = $(window).height();
+	var $face = $('#face');
+	var $keyboard = $('#keyboard');
+	var $faceSwitch = $('#faceSwitch');
 	//var panel_margin_h = 30;
 
 	heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
@@ -11,32 +14,70 @@ $(function() {
 	//$(window).scrollTop($panelBody.height() + panel_margin_h - screen_h);
 	$(window).scrollTop(10000);
 
+	$(window).resize(function() { 
+		scrollToBottom();
+	});
+
 	//输入文字时，发送按钮变亮
 	$enterBox.keyup(function() { 
 		var html = $(this).html();
 		if (html.length) { 
 			$send.addClass('btn-primary');
+		} else { 
+			$send.removeClass('btn-primary');
 		}
 	});
 
-	$(window).resize(function() { 
-		scrollToBottom();
+	$enterBox.click(function() { 
+		$('#faceIcons').hide();
+		showFace();
 	});
 
-	//点击发送按钮时
-	$send.swipe({
-		tap: function(event, target) {
-			event.preventDefault();
-			var html = $enterBox.html();
-			if (html.length) { 
-				iSaid(html);
-				heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
-			}
-			$enterBox.html('');
+	//点击笑脸
+	$faceSwitch.faceIsShowed = false;
+	$faceSwitch.click(function() { 
+		if (!this.faceIsShowed) { 
+			showKeyboard();
+			$('#faceIcons').show();
+			this.faceIsShowed = true;
+		} else { 
+			showFace();
 			$enterBox.focus();
-			$send.removeClass('btn-primary');
-			scrollToBottom();
-        }
+			$('#faceIcons').hide();
+			this.faceIsShowed = false;
+		}
+	});
+
+	function showFace() { 
+		$face.show();
+		$keyboard.hide();
+	}
+
+	function showKeyboard() { 
+		$face.hide();
+		$keyboard.show();
+	}
+
+	//点击发送按钮时
+	$send.click(function(e) { 
+		e.preventDefault();
+		var html = $enterBox.html();
+		if (html.length) { 
+			iSaid(html);
+			setTimeout(function() { 
+				heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
+				scrollToBottom();
+			}, Math.ceil(Math.random() * 2000));
+			
+		}
+		$enterBox.html('');
+		$send.removeClass('btn-primary');
+		scrollToBottom();
+		if ($('#faceIcons').css('display') === 'block') { 
+			$('#faceIcons').hide();
+			showFace();
+		}
+		$enterBox.focus();
 	});
 
 	var pos = { 
