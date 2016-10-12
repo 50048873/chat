@@ -35,6 +35,7 @@ $(function() {
 
 	//点击笑脸
 	$faceSwitch.faceIsShowed = false;
+	$faceSwitch.faceInited = false;
 	$faceSwitch.click(function() { 
 		if (!this.faceIsShowed) { 
 			showKeyboard();
@@ -45,6 +46,14 @@ $(function() {
 			$enterBox.focus();
 			$('#faceIcons').hide();
 			this.faceIsShowed = false;
+		}
+
+		if (!this.faceInited) { 
+			$('#faceIcons').face({ 
+				//dir: ['mr', 'gnl', 'lxh', 'bz'],
+				//num: [75, 46, 83, 70]
+			});
+			this.faceInited = true;
 		}
 	});
 
