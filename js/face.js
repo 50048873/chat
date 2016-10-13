@@ -22,7 +22,7 @@
 
 	function Face(wrap, options) { 
 		this.$wrap = $(wrap);
-		this.opts = $.extend({}, defaults, options);
+		this.opts = $.extend({}, defaults, options || null);
 		this.index = 0;
 
 		this.init();

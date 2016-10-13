@@ -7,12 +7,13 @@ $(function() {
 	var $face = $('#face');
 	var $keyboard = $('#keyboard');
 	var $faceSwitch = $('#faceSwitch');
+	var $faceIcons = $('#faceIcons');
 	//var panel_margin_h = 30;
 
 	heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
 
 	//$(window).scrollTop($panelBody.height() + panel_margin_h - screen_h);
-	$(window).scrollTop(10000);
+	scrollToBottom();
 
 	$(window).resize(function() { 
 		scrollToBottom();
@@ -28,8 +29,9 @@ $(function() {
 		}
 	});
 
+	//点击输入框时，隐然表情
 	$enterBox.click(function() { 
-		$('#faceIcons').hide();
+		$faceIcons.hide();
 		showFace();
 	});
 
@@ -39,33 +41,20 @@ $(function() {
 	$faceSwitch.click(function() { 
 		if (!this.faceIsShowed) { 
 			showKeyboard();
-			$('#faceIcons').show();
+			$faceIcons.show();
 			this.faceIsShowed = true;
 		} else { 
 			showFace();
 			$enterBox.focus();
-			$('#faceIcons').hide();
+			$faceIcons.hide();
 			this.faceIsShowed = false;
 		}
 
 		if (!this.faceInited) { 
-			$('#faceIcons').face({ 
-				//dir: ['mr', 'gnl', 'lxh', 'bz'],
-				//num: [75, 46, 83, 70]
-			});
+			$faceIcons.face();
 			this.faceInited = true;
 		}
 	});
-
-	function showFace() { 
-		$face.show();
-		$keyboard.hide();
-	}
-
-	function showKeyboard() { 
-		$face.hide();
-		$keyboard.show();
-	}
 
 	//点击发送按钮时
 	$send.click(function(e) { 
@@ -82,8 +71,8 @@ $(function() {
 		$enterBox.html('');
 		$send.removeClass('btn-primary');
 		scrollToBottom();
-		if ($('#faceIcons').css('display') === 'block') { 
-			$('#faceIcons').hide();
+		if ($faceIcons.css('display') === 'block') { 
+			$faceIcons.hide();
 			showFace();
 		}
 		$enterBox.focus();
@@ -100,8 +89,6 @@ $(function() {
 		pageSize: 5
 	};
 	var panel = $panel[0];
-
-	//loadContent(paging);
 
 	panel.addEventListener('touchstart', fingerStart, false);
 	panel.addEventListener('touchmove', fingerMove, false);
@@ -217,5 +204,15 @@ $(function() {
 			var html = '<div class="loading" id="loading"></div>';
 			$panelBody.prepend(html);
 		}
+	}
+
+	function showFace() { 
+		$face.show();
+		$keyboard.hide();
+	}
+
+	function showKeyboard() { 
+		$face.hide();
+		$keyboard.show();
 	}
 });
