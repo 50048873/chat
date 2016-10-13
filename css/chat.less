@@ -38,11 +38,17 @@ html {
 			}
 		}
 	}
+	p { 
+		word-wrap: break-word;
+	}
 	.pos-rlt { 
-		border-color: #ccc;
+		//border-color: #ccc;
 	}
 	.arrow.left { 
-		border-right-color: #ccc;
+		//border-right-color: #ccc;
+	}
+	.arrow.right {
+	    //border-left-color: #ccc;
 	}
 	.startChatTooltip { 
 		text-align: center;
@@ -66,48 +72,40 @@ html {
 	position: fixed;
     bottom: 0;
     width: 100%;
-    border-color: #dee5e7;
     z-index: 10;
-    //padding: 10px 15px;
     border-top: 1px solid #dee5e7;
     background-color: #ededed;
     form { 
-	    display: table;
+	    width: 100%;
 	    padding: 10px 15px;
 		.enterBox { 
 			height: 34px;
 			padding: 6px 12px;
 			border-bottom: 1px solid #dee5e7;
+			position: absolute;
+			right: 120px;
+			left: 15px;
+			overflow-y: auto;
 		}
 		.enterBox:focus { 
-			border-bottom: 1px solid #7266ba;
+			border-color: #7266ba;
 		}
 		.faceSwitch { 
-		    white-space: nowrap;
-		    width: 1%;
-		    vertical-align: middle;
-		    display: table-cell;
-		    /*span { 
-				display: inline-block;
-				width: 34px;
-				height: 34px;
-				background-color: red;
-				float: left;
-		    }*/
+			width: 34px;
+			height: 34px;
+			float: right;
+			margin-right: 10px;
+			margin-left: 5px;
+			overflow: hidden;
 		    svg { 
-		    	float: left;
-				height: 34px;
-				margin-right: 10px;
-				margin-left: 5px;
+
 		    }
 		    #keyboard { 
 				display: none;
 		    }
 		}
 		.sendBox { 
-		    width: 1%;
-		    vertical-align: middle;
-		    display: table-cell;
+			float: right;
 		}
     }
 }

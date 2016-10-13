@@ -187,8 +187,8 @@ $(function() {
 		var html = '<div class="m-b">' +
 				'<a href="" class="pull-right thumb-sm avatar"><img src="img/a3.jpg" class="img-circle" alt="..."></a>' +
 				'<div class="m-r-xxl m-l-xxl">' +
-				  '<div class="pos-rlt wrapper bg-primary r r-2x">' +
-					'<span class="arrow right pull-up arrow-primary"></span>' +
+				  '<div class="pos-rlt wrapper b r r-2x">' +
+					'<span class="arrow right pull-up"></span>' +
 					'<p class="m-b-none">' + txt + '</p>' +
 				  '</div>' +
 				  '<small class="text-muted">' + time + '</small>' +
@@ -202,8 +202,8 @@ $(function() {
 		var html = '<div class="m-b">' +
 				'<a href="" class="pull-left thumb-sm avatar"><img src="img/a2.jpg" alt="..."></a>' +
 				'<div class="m-r-xxl m-l-xxl">' +
-				  '<div class="pos-rlt wrapper b r r-2x">' +
-					'<span class="arrow left pull-up"></span>' +
+				  '<div class="pos-rlt wrapper bg-primary r r-2x">' +
+					'<span class="arrow left pull-up arrow-primary"></span>' +
 					'<p class="m-b-none">' + txt + '</p>' +
 				  '</div>' +
 				  '<small class="text-muted"><i class="fa fa-ok text-success"></i>' + time + '</small>' +
