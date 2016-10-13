@@ -3,17 +3,12 @@ $(function() {
 	var $panelBody = $('#panelBody');
 	var $send = $('#send');
 	var $enterBox = $('#enterBox');
-	var screen_h = $(window).height();
 	var $face = $('#face');
 	var $keyboard = $('#keyboard');
 	var $faceSwitch = $('#faceSwitch');
 	var $faceIcons = $('#faceIcons');
-	//var panel_margin_h = 30;
 
 	heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
-
-	//$(window).scrollTop($panelBody.height() + panel_margin_h - screen_h);
-	scrollToBottom();
 
 	$(window).resize(function() { 
 		scrollToBottom();
@@ -64,13 +59,11 @@ $(function() {
 			iSaid(html);
 			setTimeout(function() { 
 				heSaid('您好，感谢您对国网湖北电力的支持与信任！您的问题我们已经收到，请您留下您的联系方式、用电客户编号或详细地址，我们将尽快答复您。');
-				scrollToBottom();
 			}, Math.ceil(Math.random() * 2000));
 			
 		}
 		$enterBox.html('');
 		$send.removeClass('btn-primary');
-		scrollToBottom();
 		if ($faceIcons.css('display') === 'block') { 
 			$faceIcons.hide();
 			showFace();
@@ -165,38 +158,41 @@ $(function() {
 	}
 
 	function scrollToBottom() { 
-		//$(window).scrollTop($panelBody.height() + panel_margin_h - (screen_h - $(window).height()));
-		$(window).scrollTop(10000);
+		$(window).scrollTop($panelBody.height());
 	}
 
 	function iSaid(txt) { 
-		var time = $.format.date(new Date(), "yyyy-MM-dd HH:mm:ss");
+		var idNo = new Date() * 1;
+		var time = $.format.date(idNo, "yyyy-MM-dd HH:mm:ss");
 		var html = '<div class="m-b">' +
-				'<a href="" class="pull-right thumb-sm avatar"><img src="img/a3.jpg" class="img-circle" alt="..."></a>' +
+				'<a href="" class="pull-right thumb-sm avatar"><img src="img/a3.jpg" alt="..."></a>' +
 				'<div class="m-r-xxl m-l-xxl">' +
 				  '<div class="pos-rlt wrapper b r r-2x">' +
 					'<span class="arrow right pull-up"></span>' +
-					'<p class="m-b-none">' + txt + '</p>' +
+					'<p class="m-b-none iSaid">' + txt + '</p>' +
 				  '</div>' +
 				  '<small class="text-muted">' + time + '</small>' +
 				'</div>' +
 			'</div>';
 		$panelBody.append(html);
+		$('.iSaid:last')[0].scrollIntoView();
 	}
 
 	function heSaid(txt) { 
-		var time = $.format.date(new Date, "yyyy-MM-dd HH:mm:ss");
+		var idNo = new Date() * 1;
+		var time = $.format.date(idNo, "yyyy-MM-dd HH:mm:ss");
 		var html = '<div class="m-b">' +
 				'<a href="" class="pull-left thumb-sm avatar"><img src="img/a2.jpg" alt="..."></a>' +
 				'<div class="m-r-xxl m-l-xxl">' +
 				  '<div class="pos-rlt wrapper bg-primary r r-2x">' +
 					'<span class="arrow left pull-up arrow-primary"></span>' +
-					'<p class="m-b-none">' + txt + '</p>' +
+					'<p class="m-b-none heSaid">' + txt + '</p>' +
 				  '</div>' +
-				  '<small class="text-muted"><i class="fa fa-ok text-success"></i>' + time + '</small>' +
+				  '<small class="text-muted">' + time + '</small>' +
 				'</div>' +
 			'</div>';
 		$panelBody.append(html);
+		$('.heSaid:last')[0].scrollIntoView();
 	}
 
 	function loading_add() { 
